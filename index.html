@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin"> 
+<title>HAPPY BIRTHDAY, YOU MENACE 💀</title>
+
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;overflow-x:hidden;font-family:system-ui,Arial,sans-serif;color:#20152e;
+    background:radial-gradient(circle at 15% 15%,#fff36d 0 8%,transparent 9%),
+    radial-gradient(circle at 85% 20%,#ff73b7 0 9%,transparent 10%),
+    linear-gradient(135deg,#a8f0ff,#ffd0eb 55%,#fff2a6);text-align:center}
+  .wrap{width:min(850px,92%);margin:30px auto;background:#ffffffdf;border:4px solid white;border-radius:30px;
+    padding:clamp(20px,5vw,42px);box-shadow:0 18px 0 #5a367022,0 25px 60px #281a3b22;position:relative;z-index:2}
+  .stamp{display:inline-block;background:#20152e;color:white;padding:9px 16px;border-radius:999px;font-weight:900;transform:rotate(-3deg)}
+  h1{font-size:clamp(2.5rem,9vw,5.7rem);line-height:.88;letter-spacing:-4px;margin:25px 0 12px;text-transform:uppercase}
+  h1 span{color:#ff3c91;text-shadow:3px 3px 0 #20152e}
+  .sub{font-size:1.15rem;font-weight:700}
+  .emoji{font-size:clamp(4rem,12vw,7rem);animation:wobble .8s infinite alternate;display:block}
+  .panel{background:#fff2a6;border:3px dashed #20152e;border-radius:20px;padding:16px;margin:22px 0;font-weight:800}
+  .video{position:relative;width:100%;aspect-ratio:16/9;border:5px solid #20152e;border-radius:20px;overflow:hidden;background:#20152e}
+  .video iframe{width:100%;height:100%;border:0}
+  .caption{font-size:.85rem;font-weight:800;margin:9px 0 0}
+  button{border:3px solid #20152e;border-radius:999px;background:#ff4b9a;color:#20152e;font-weight:1000;
+    font-size:1rem;padding:13px 19px;margin:7px;cursor:pointer;box-shadow:0 5px 0 #20152e;transition:transform .12s}
+  button:hover{transform:translateY(-3px) rotate(-1deg)}
+  button:active{transform:translateY(3px);box-shadow:0 2px 0 #20152e}
+  .secondary{background:#a8f0ff}.yellow{background:#fff36d}
+  #message{min-height:64px;margin:20px 0 0;font-size:1.2rem;font-weight:1000;color:#e52b7d}
+  .float{position:fixed;z-index:1;bottom:-60px;font-size:30px;animation:floatUp 8s linear infinite;pointer-events:none}
+  .confetti{position:fixed;top:-30px;z-index:5;animation:fall 3s linear forwards;pointer-events:none;font-size:24px;font-weight:1000;color:#ff3c91}
+  footer{font-size:.8rem;opacity:.7;margin-top:25px}
+  @keyframes wobble{from{transform:rotate(-10deg) scale(1)}to{transform:rotate(10deg) scale(1.08)}}
+  @keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg)}}
+  @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+  @media(max-width:500px){h1{letter-spacing:-2px}.wrap{margin:14px auto}}
+</style>
+
+</head>
+
+<body>
+
+  <main class="wrap">
+  <div class="stamp">🚨 PLEASE GET OFFENDED 🚨</div>
+  <h1>HAPPY BIRTHDAY<br><span>OLDIE</span></h1>
+  <span class="emoji">🎂</span>
+  
+  <div class="panel">📢 23 YEARS OLD - YOU THINK YOU ARE YOUNG BUT YOU ARE NOT</div>
+
+  <h2>🎥 A SPECIAL MESSAGE</h2>
+  
+  <div class="video">
+<iframe
+    width="100%"
+    height="400"
+    src="https://www.youtube.com/embed/bbGPusRGJS4"
+    title="Birthday Funny Video"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+  </div>
+  
+  <p class="caption">⚠️ Highly emotional birthday wishes which mean nothing</p>
+  <h2>👇 Click something</h2>
+
+  <button class="yellow" onclick="party()">🎉 DON'T CLICK ME</button>
+  <button class="secondary" onclick="roast()">🔥 ROAST ME</button>
+
+  <div id="message" aria-live="polite">Choose wisely. There are consequences. 💀</div>
+  
+  <footer>Vibe-coded by Kishan Patel, MIND all the jokes❤️</footer>
+  <footer>⚠️ Don't share it with people</footer>
+</main>
+
+
+<script>
+const roasts=[
+ "Your birth certificate is basically a museum membership now. 🏛️",
+ "You're not old. You're just buffering in real life. ⏳",
+ "Your knees probably make more noise than your group chat. 💀",
+ "Another year older and still asking, “what's the Wi-Fi password?”",
+ "You're aging like a banana left in a hot car. 🍌",
+ "Scientists are still trying to understand how you've made it this far. 🧪"
+];
+
+function roast(){
+ document.getElementById('message').textContent=roasts[Math.floor(Math.random()*roasts.length)];
+}
+
+function party(){
+ document.getElementById('message').textContent="🚨 I TOLD YOU NOT TO CLICK";
+
+ for(let i=0;i<100;i++){
+   const c=document.createElement('i');
+   c.className='confetti';
+   c.textContent='FUCK YOU';
+   c.style.left=Math.random()*100+'vw';
+   c.style.color=['#ff3c91','#20152e','#39c9ef','#8be28b','#9b7bff'][Math.floor(Math.random()*5)];
+   c.style.animationDelay=Math.random()*.8+'s';
+   c.style.animationDuration=(2+Math.random()*3)+'s';
+   document.body.appendChild(c);
+   setTimeout(()=>c.remove(),6000);
+ }
+}
+
+const floating=['🎈','🍕','🖕','💀','🎂','🦆'];
+
+for(let i=0;i<50;i++){
+ const e=document.createElement('div');
+ e.className='float';
+ e.textContent=floating[i%floating.length];
+ e.style.left=Math.random()*100+'vw';
+ e.style.animationDelay=(-Math.random()*8)+'s';
+ e.style.animationDuration=(6+Math.random()*7)+'s';
+ document.body.appendChild(e);
+}
+</script>
+</body>
+</html>
